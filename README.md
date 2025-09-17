@@ -1,20 +1,19 @@
-## Chess Opening Graph – Red de coocurrencia de aperturas
+## Chess Opening Graph
 
-El siguiente repositorio contiene el trabajo de especialización para obtener el título de especialista en Explotación de Datos y Descubrimiento del Conocimiento, entregado por la Facultad de Ciencias Exactas y la Facultad de Ingeniería (UBA). El proyecto explora patrones de elección de aperturas en ajedrez a partir de partidas en formato PGN, construyendo una matriz bipartita jugador–apertura y, a partir de ella, una red de coocurrencia de aperturas para analizar metricas topologicas de las redes y encontrar comunidades, para 3 grupos de jugadores que fueron clasificados segun el ELO.
+El siguiente repositorio contiene el trabajo de especialización para obtener el título de especialista en Explotación de Datos y Descubrimiento del Conocimiento, entregado por la Facultad de Ciencias Exactas y la Facultad de Ingeniería (UBA). El proyecto explora patrones de elección de aperturas en ajedrez a partir de partidas en formato PGN, construyendo una matriz bipartita jugador–apertura y, a partir de ella, una red de coocurrencia de aperturas para analizar metricas topológicas de las redes y encontrar comunidades, para 3 grupos de jugadores que fueron clasificados segun el ELO.
 
 ### Objetivos
-- **Modelar** el repertorio de aperturas por jugador con una matriz bipartita \(M\).
-- **Derivar** la coocurrencia entre aperturas \(W = M^\top M\) y construir el grafo correspondiente.
-- **Detectar** comunidades y extraer métricas de la red (modularidad, centralidades, etc.).
-- **Explorar** la relación entre elecciones de apertura y nivel de juego (ELO).
+- **Modelar** el repertorio de aperturas por jugador con una matriz bipartita.
+- **Derivar** la coocurrencia entre aperturas y construir los grafos correspondientes.
+- **Detectar** comunidades y extraer métricas de las redes.
 
 ## Estructura del repositorio
 - `notebooks/`
-  - `pgn_parser.ipynb`: parseo de archivos PGN y generación de dataset tabular intermedio.
-  - `main.ipynb`: construcción de \(M\), coocurrencia \(W\), grafo, métricas y visualizaciones.
+  - `pgn_parser.ipynb`: parseo de archivos PGN y generación del dataset.
+  - `main.ipynb`: análisis exploratorio, construcción de la matriz bipartita, matriz de coocurrencia, grafos, métricas y comunidades.
 - `data/`
   - `raw/`: colocar aquí los archivos `.pgn` originales (fuente de datos cruda).
-  - `processed/`: salidas intermedias generadas por el parser (por ejemplo, `.parquet`/`.csv`).
+  - `processed/`: salidas intermedias generadas por el parser.
 - `requirements.txt`: dependencias del proyecto.
 - `README.md`: este documento.
 
