@@ -52,9 +52,9 @@ Estructura esperada:
 Chess-opening-graph/
   data/
     raw/
-      2018-01.pgn
-      2018-02.pgn
-      2018-03.pgn
+      lichess_db_standard_rated_2018-01.pgn
+      lichess_db_standard_rated_2018-02.pgn
+      lichess_db_standard_rated_2018-03.pgn
 ```
 
 ## Ejecución del pipeline
@@ -69,7 +69,7 @@ Chess-opening-graph/
    - Genera un dataset tabular y lo guarda en `data/processed/` (formato/nombre definidos en el notebook).
 3. Ejecutar `notebooks/main.ipynb`:
    - Construye la matriz bipartita jugador × apertura-color (`eco_color`).
-   - Obtiene la coocurrencia \(W = M^\top M\) y el grafo de aperturas.
+   - Obtiene la coocurrencia y el grafo de aperturas.
    - Calcula métricas, detecta comunidades y crea las figuras/tablas.
 
 > Si cambiás rutas o nombres de archivos, actualizalos en las celdas de configuración de cada notebook.
