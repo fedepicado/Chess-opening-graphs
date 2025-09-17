@@ -1,0 +1,85 @@
+## Chess Opening Graph – Red de coocurrencia de aperturas
+
+El siguiente repositorio contiene el trabajo de especialización para obtener el título de especialista en Explotación de Datos y Descubrimiento del Conocimiento, entregado por la Facultad de Ciencias Exactas y la Facultad de Ingeniería (UBA). El proyecto explora patrones de elección de aperturas en ajedrez a partir de partidas en formato PGN, construyendo una matriz bipartita jugador–apertura y, a partir de ella, una red de coocurrencia de aperturas para analizar metricas topologicas de las redes y encontrar comunidades, para 3 grupos de jugadores que fueron clasificados segun el ELO.
+
+### Objetivos
+- **Modelar** el repertorio de aperturas por jugador con una matriz bipartita \(M\).
+- **Derivar** la coocurrencia entre aperturas \(W = M^\top M\) y construir el grafo correspondiente.
+- **Detectar** comunidades y extraer métricas de la red (modularidad, centralidades, etc.).
+- **Explorar** la relación entre elecciones de apertura y nivel de juego (ELO).
+
+## Estructura del repositorio
+- `notebooks/`
+  - `pgn_parser.ipynb`: parseo de archivos PGN y generación de dataset tabular intermedio.
+  - `main.ipynb`: construcción de \(M\), coocurrencia \(W\), grafo, métricas y visualizaciones.
+- `data/`
+  - `raw/`: colocar aquí los archivos `.pgn` originales (fuente de datos cruda).
+  - `processed/`: salidas intermedias generadas por el parser (por ejemplo, `.parquet`/`.csv`).
+- `requirements.txt`: dependencias del proyecto.
+- `README.md`: este documento.
+
+> Nota: si tu carpeta se llama `Data/` con mayúscula, usala de forma consistente (`Data/raw/`).
+
+## Requisitos
+- Python ≥ 3.12.5 
+- Pip actualizado
+- Jupyter Notebook o JupyterLab (incluido en `requirements.txt`)
+
+## Instalación (Windows PowerShell)
+```powershell
+# Ubicarse en la carpeta del proyecto
+# Crear y activar un entorno virtual
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+# Actualizar pip e instalar dependencias
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### Alternativa (Unix/macOS)
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+## Datos de entrada
+1. Descargá los archivos PGN de las partidas que quieras analizar.
+2. Copiá los **primeros 3 meses de 2018** (por ejemplo: `2018-01.pgn`, `2018-02.pgn`, `2018-03.pgn`) dentro de `data/raw/`.
+
+Estructura esperada:
+```
+Chess-opening-graph/
+  data/
+    raw/
+      2018-01.pgn
+      2018-02.pgn
+      2018-03.pgn
+```
+
+## Ejecución del pipeline
+1. Iniciar Jupyter:
+   ```powershell
+   jupyter lab
+   # o
+   jupyter notebook
+   ```
+2. Ejecutar `notebooks/pgn_parser.ipynb` de principio a fin:
+   - Lee los `.pgn` desde `data/raw/`.
+   - Genera un dataset tabular y lo guarda en `data/processed/` (formato/nombre definidos en el notebook).
+3. Ejecutar `notebooks/main.ipynb`:
+   - Construye la matriz bipartita jugador × apertura-color (`eco_color`).
+   - Obtiene la coocurrencia \(W = M^\top M\) y el grafo de aperturas.
+   - Calcula métricas, detecta comunidades y crea las figuras/tablas.
+
+> Si cambiás rutas o nombres de archivos, actualizalos en las celdas de configuración de cada notebook.
+
+## Resultados esperados
+- Dataset procesado en `data/processed/` listo para análisis.
+- Figuras y tablas generadas por `main.ipynb` (guardadas según la configuración del notebook).
+
+## Reproducibilidad
+- Usá la **misma versión** de dependencias (`requirements.txt`) y **el mismo conjunto de PGN** para obtener resultados comparables.
+- Si el notebook establece semillas aleatorias, mantenelas fijas para replicar particiones/algoritmos estocásticos.
+
