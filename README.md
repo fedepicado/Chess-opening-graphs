@@ -1,16 +1,18 @@
 ## Chess Opening Graph
 
-El siguiente repositorio contiene el trabajo de especialización para obtener el título de especialista en Explotación de Datos y Descubrimiento del Conocimiento, entregado por la Facultad de Ciencias Exactas y la Facultad de Ingeniería (UBA). El proyecto explora patrones de elección de aperturas en ajedrez a partir de partidas en formato PGN, construyendo una matriz bipartita jugador–apertura y, a partir de ella, una red de coocurrencia de aperturas para analizar metricas topológicas de las redes y encontrar comunidades, para 3 grupos de jugadores que fueron clasificados segun el ELO.
+El siguiente repositorio contiene el trabajo final de la de especialización en Explotación de Datos y Descubrimiento del Conocimiento, entregado por la Facultad de Ciencias Exactas y la Facultad de Ingeniería (UBA). El proyecto explora patrones de elección de aperturas en ajedrez a partir de partidas en formato PGN, construyendo una matriz bipartita jugador–apertura y, a partir de ella, una red de coocurrencia de aperturas para analizar metricas topológicas de las redes y encontrar comunidades, para 3 grupos de jugadores que fueron clasificados segun el ELO.
 
 ### Objetivos
+- **Extracción** de los metadatos de los archivos PGN.
 - **Modelar** el repertorio de aperturas por jugador con una matriz bipartita.
-- **Derivar** la coocurrencia entre aperturas y construir los grafos correspondientes.
+- **Generar** la coocurrencia entre aperturas y construir los grafos correspondientes.
+- **Calcular** las metricas correspondientes para cada red.
 - **Detectar** comunidades y extraer métricas de las redes.
 
 ## Estructura del repositorio
 - `notebooks/`
   - `pgn_parser.ipynb`: parseo de archivos PGN y generación del dataset.
-  - `main.ipynb`: análisis exploratorio, construcción de la matriz bipartita, matriz de coocurrencia, grafos, métricas y comunidades.
+  - `main.ipynb`: análisis exploratorio, modelado de la matriz bipartita, generación de la matriz de coocurrencia y construción de los grafos, métricas y comunidades.
 - `data/`
   - `raw/`: colocar aquí los archivos `.pgn` originales (fuente de datos cruda).
   - `processed/`: salidas intermedias generadas por el parser.
@@ -68,7 +70,7 @@ Chess-opening-graph/
    - Lee los `.pgn` desde `data/raw/`.
    - Genera un dataset tabular y lo guarda en `data/processed/` (formato/nombre definidos en el notebook).
 3. Ejecutar `notebooks/main.ipynb`:
-   - Construye la matriz bipartita jugador × apertura-color (`eco_color`).
+   - Construye la matriz bipartita jugador × apertura-color (`ECO_color`).
    - Obtiene la coocurrencia y el grafo de aperturas.
    - Calcula métricas, detecta comunidades y crea las figuras/tablas.
 
