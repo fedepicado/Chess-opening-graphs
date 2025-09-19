@@ -7,7 +7,7 @@ El siguiente repositorio contiene el trabajo final de la de especialización en 
 - **Modelar** el repertorio de aperturas por jugador con una matriz bipartita.
 - **Generar** la coocurrencia entre aperturas y construir los grafos correspondientes.
 - **Calcular** las metricas correspondientes para cada red.
-- **Detectar** comunidades y extraer métricas de las redes.
+- **Detectar** comunidades y subcomunidades.
 
 ## Estructura del repositorio
 - `notebooks/`
